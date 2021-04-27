@@ -16,3 +16,6 @@ Here are the rules I followed, found on [this Medium article](https://medium.com
 >   5. The game can handle incorrect input.
 >   6. The UI is convenient.
 >   7. The code uses modern language features and libraries.
+
+
+Note: On April 28, I used this repo to test out git integration with my IDE.

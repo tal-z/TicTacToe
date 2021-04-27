@@ -1,9 +1,8 @@
 
-
-board = ((['_'],['_'],['_']),(['_'],['_'],['_']),(['_'],['_'],['_']))
+board = ((['_'] ,['_'] ,['_']) ,(['_'] ,['_'] ,['_']) ,(['_'] ,['_'] ,['_']))
 
 def print_board():
-    print(' ', '1',' ', '2',' ', '3')
+    print(' ', '1' ,' ', '2' ,' ', '3')
     print('A ', *board[0][0], '|', *board[0][1], '|', *board[0][2])
     print('B ', *board[1][0], '|', *board[1][1], '|', *board[1][2])
     print('C ', *board[2][0], '|', *board[2][1], '|', *board[2][2])
@@ -37,7 +36,7 @@ class Player():
                 if char.lower() == 'c':
                     row = 2
             if char.isnumeric():
-                if int(char) <=3 and int(char) >=1:
+                if 3 >= int(char) >= 1:
                     col = int(char) - 1
 
         return row, col
@@ -59,21 +58,21 @@ def check_filled_spaces():
     return filled_spaces
 
 def check_for_win():
-    win_status = False
+    win = False
     for i in range(3):
         if board[i][0]==board[i][1]==board[i][2] and board[i][0][0]!='_':
-            win_status = True
-            return win_status
+            win = True
+            return win
         if board[0][i]==board[1][i]==board[2][i] and board[0][i][0]!='_':
-            win_status = True
-            return win_status
+            win = True
+            return win
         if board[0][0]==board[1][1]==board[2][2] and board[0][0][0]!='_':
-            win_status = True
-            return win_status
+            win = True
+            return win
         if board[2][0] == board[1][1] == board[0][2] and board[2][0][0]!='_':
-            win_status = True
-            return win_status
-    return win_status
+            win = True
+            return win
+    return win
 
 
 
@@ -84,30 +83,28 @@ if __name__ == '__main__':
     player1 = Player(name=p1_name, symbol="X")
     player2 = Player(name=p2_name, symbol='O')
 
-    turn = 1
-    win_status=False
+    turn = 0
+    win_status = False
 
-    while win_status == False:
-        if check_filled_spaces()<9:
+    while not win_status:
+        if check_filled_spaces() < 9:
+            turn += 1
             print(f"Turn {turn}:")
             print_board()
             if turn % 2 != 0:
                 player1.play_move()
             else:
                 player2.play_move()
-            turn += 1
+
         else:
             print_board()
             print("Tie Game!")
             break
         win_status = check_for_win()
-        if win_status == True:
+        if win_status:
             if turn % 2 != 0:
                 print_board()
                 print(f"{player1.name} wins! Game over.")
             else:
                 print_board()
                 print(f"{player2.name} wins! Game over.")
-
-
-
