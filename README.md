@@ -18,4 +18,5 @@ Here are the rules I followed, found on [this Medium article](https://medium.com
 >   7. The code uses modern language features and libraries.
 
 
-Note: On April 28, I used this repo to test out git integration with my IDE.
+Note: On April 28, I used this repo to test out git integration with my IDE. 
+Later on that same day, I tested integration with another IDE. Riveting stuff.
